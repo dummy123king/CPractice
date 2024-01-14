@@ -71,32 +71,21 @@ int pop(void)
 
 int main()
 {
+    int data = 0;
     push(5);
     push(4);
     push(3);
     push(2);
     push(1);
     printStack();
-    int data = pop();
-    printf("%d\n", data);
-    printStack();
+    
     data = pop();
     printf("%d\n", data);
     printStack();
-        data = pop();
+
+    data = pop();
     printf("%d\n", data);
     printStack();
-        data = pop();
-    printf("%d\n", data);
-    printStack();
-        data = pop();
-    printf("%d\n", data);
-    printStack();
-        data = pop();
-    printf("%d\n", data);
-    printStack();
-            data = pop();
-    printf("%d\n", data);
-    printStack();
+    
     return 0;
 }
