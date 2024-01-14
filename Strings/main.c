@@ -52,8 +52,6 @@ void reverse_str_3(char *ptr)
 
 char *my_strstr(const char * str, const char * substr)
 {
-    //"Shaik"
-    //"ik"
     for (int i = 0; str[i]; i++)
     {
         int j = 0;
@@ -207,7 +205,6 @@ void *my_memmove(void *dest, const void *src, size_t n)
     else
     {
         //Copy from the end of the strings
-        printf("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n");
         char *temp1 = dest + n - 1;
         const char *temp2 = src + n - 1;
         while (n--)
@@ -245,34 +242,11 @@ void count_repeated_chars(char * str)
 	}
 }
 
-// char *my_strstr1(const char *str1, const char *str2)
-// {
-//     for (int i = 0; str1[i]; i++)
-//     {
-//         int j = 0;
-//         if(str1[i] == str2[j])
-//         {
-//             for (j = 1; str2[j]; j++)
-//             {
-//                 if (str1[j + i] == str2[j])
-//                 {
-//                     if (str2[j + 1] == '\0')
-//                     {
-//                         return (char *)(str1 + i);
-//                     }
-//                 }
-//                 else
-//                     break;
-//             }   
-//         }        
-//     }
-//     return NULL;
-// }
 
 int main()
 {
-    char str1[] = "Shaik Imran";
-    char str2[] = "Imr"; 
+    char str1[] = "HellooHellooo";
+    char str2[] = "loo"; 
     
     char *ptr = NULL;
 
