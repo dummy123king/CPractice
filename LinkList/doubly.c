@@ -138,8 +138,11 @@ void addAtMiddle(int data)
         newNode->prev = mid;
         newNode->next = mid->next;
         mid->next = newNode;
-        
-        
+        if (head->next->next->next == NULL || head->next->next->next->next == NULL)
+        {
+            printf("shasdf\n");
+            tail->prev = newNode;
+        }        
     }
 }
 
@@ -189,35 +192,18 @@ void deleteAtLast(void)
 int main()
 {
     addAtMiddle(5);
-    printList();
-    printListReverse();
-
     addAtMiddle(1);
-    printList();
-    printListReverse();
-
     addAtMiddle(6);
+    addAtMiddle(55);
+    addAtMiddle(85);
     printList();
     printListReverse();
+    /*
+    addAtMiddle(88);
+    printList();
 
-    // addAtMiddle(55);
-    // printList();
-
-    // addAtMiddle(88);
-    // printList();
-
-    // addAtMiddle(877);
-    // printList();
-
-    // addAtMiddle(897);
-    // printList();
-
-    // addAtMiddle(8988);
-    // printList();
-
-    // addAtMiddle(800);
-    // printList();
-    // printListReverse();
+    addAtMiddle(877);
+    printList();*/
 
     return 0;
 }
