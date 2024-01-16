@@ -1,147 +1,223 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
 
-typedef struct doubly
+typedef struct DoublyLinklist
 {
+    struct DoublyLinklist *prev;
     int data;
-    struct doubly *next, *prev;
-
-} Node;
+    struct DoublyLinklist *next;
+}Node;
 
 Node *head = NULL;
+Node *tail = NULL;
 
-void print_list()
+void printList(void)
 {
     Node *temp = head;
+    if (temp == NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    printf("NULL->");
     while (temp != NULL)
     {
-        printf("%d ", temp->data);
+        printf("%d->", temp->data);
         temp = temp->next;
     }
-    printf("\n");
+    printf("NULL\n");
 }
 
-void print_list_reverse()
+void printListReverse()
 {
-    Node *temp = head;
-    while (temp->next != NULL)
+    
+    Node *temp = tail;
+    if (temp == NULL)
     {
-        temp = temp->next;
+        printf("List is empty\n");
+        return;
     }
+    printf("NULL->");
     while (temp != NULL)
     {
-        printf("%d ", temp->data);
+        printf("%d->", temp->data);
         temp = temp->prev;
     }
-    printf("\n");
+    printf("NULL\n");
 }
 
-void add_data_at_first(int data)
+void addAtFirst(int data)
 {
-    Node *new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
+    Node *newNode = malloc(sizeof(Node));
+
+    if (newNode == NULL)
     {
         printf("Unable to allocate memory\n");
         return;
     }
-    else
-    {
-        new_node->data = data;
-        new_node->next = NULL;
-        new_node->prev = NULL;
-        if (head == NULL)
-        {
-            head = new_node;
-        }
-        else
-        {
-            new_node->next = head;
-            head->prev = new_node;
-            head = new_node;
-        }
-    }
-}
+    
+    newNode->prev = NULL;
+    newNode->data = data;
+    newNode->next = NULL;
 
-void add_data_at_last(int data)
-{
-    Node *new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
+    if (head == NULL && tail == NULL)
     {
-        printf("Unable to allocate memory\n");
+        head = newNode;
+        tail = newNode;
         return;
     }
     else
     {
-        new_node->data = data;
-        new_node->next = NULL;
-        new_node->prev = NULL;
-        if (head == NULL)
-        {
-            head = new_node;
-        }
-        else
-        {
-            Node *temp = head;
-            while (temp->next != NULL)
-            {
-                temp = temp->next;
-            }
-            temp->next = new_node;
-            new_node->prev = temp;
-        }
+        newNode->next = head;
+        head->prev = newNode;
+        head = newNode;
     }
 }
 
-void add_data_at_middle(int data)
+void addAtLast(int data)
 {
-    Node *new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
+    Node *newNode = malloc(sizeof(Node));
+    if (newNode == NULL)
     {
         printf("Unable to allocate memory\n");
         return;
     }
+    
+    newNode->prev = NULL;
+    newNode->data = data;
+    newNode->next = NULL;
+
+    if (head == NULL && tail == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
     else
     {
-        new_node->data = data;
-        new_node->next = NULL;
-        new_node->prev = NULL;
-        if (head == NULL)
-        {
-            head = new_node;
-        }
-        else if (head->next = NULL)
-        {
-            head->next = new_node;
-            new_node->prev = head;
-        }
-        else
-        {
-            Node *mid = head, *last = head->next;
-
-            while (last != NULL && last->next != NULL)
-            {
-                mid = mid->next;
-                last = last->next->next;
-            }
-            new_node->prev = mid;
-            new_node->next = mid->next;
-            mid->next = new_node;
-        }
+        newNode->prev = tail;
+        tail->next = newNode;
+        tail = newNode;
     }
 }
+
+void addAtMiddle(int data)
+{
+    Node *newNode = malloc(sizeof(Node));
+    if (newNode == NULL)
+    {
+        printf("Unable to allocate memory");
+        return;
+    }
+    
+    newNode->prev = NULL;
+    newNode->data = data;
+    newNode->next = NULL;
+    if (head == NULL && tail == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    if (head->next == NULL)
+    {
+        newNode->prev = head;
+        head->next = newNode;
+        tail = newNode;
+        return;
+    }
+    else
+    {
+        Node *mid = head, *fast = head->next;
+
+        while (fast && fast->next)
+        {
+            mid = mid->next;
+            fast = fast->next->next;
+        }
+        newNode->prev = mid;
+        newNode->next = mid->next;
+        mid->next = newNode;
+        
+        
+    }
+}
+
+void deleteAtFirst(void)
+{
+    Node* temp = head; 
+
+    if (temp == NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    if (temp->next == NULL)
+    {
+        free(temp);
+        head = NULL;
+        tail = NULL;
+        return;
+    }
+    
+    head = head->next;
+    head->prev = NULL;
+    free(temp);
+}
+
+void deleteAtLast(void)
+{
+    Node *temp = tail;
+    if (temp == NULL && head == NULL)
+    {
+        printf("List is empty");
+        return;   
+    }
+    if (temp->prev == NULL)
+    {
+        free(temp);
+        tail = NULL;
+        head = NULL;
+        return;
+    }
+    tail->prev->next = NULL;
+    tail = tail->prev;
+    free(temp);    
+}
+
 
 int main()
 {
-    uint32_t data = 0xaabbccdd;
-    uint32_t data1 = 0xAABBCCDD;
-    char str[] = "made07aaes";
+    addAtMiddle(5);
+    printList();
+    printListReverse();
 
-    if (data1 == data)
-        printf("Equal\n");
+    addAtMiddle(1);
+    printList();
+    printListReverse();
 
-    printf("%x\n", data);
-    printf("%X\n", data);
+    addAtMiddle(6);
+    printList();
+    printListReverse();
+
+    // addAtMiddle(55);
+    // printList();
+
+    // addAtMiddle(88);
+    // printList();
+
+    // addAtMiddle(877);
+    // printList();
+
+    // addAtMiddle(897);
+    // printList();
+
+    // addAtMiddle(8988);
+    // printList();
+
+    // addAtMiddle(800);
+    // printList();
+    // printListReverse();
+
     return 0;
 }
