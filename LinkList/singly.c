@@ -1,329 +1,277 @@
-  #include <stdio.h>
-  #include <stdlib.h>
-  #include <string.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 
-  typedef struct st
+typedef struct SingleLinkList
+{
+  int data;
+  struct SingleLinkList *next;
+} Node;
+
+Node *head = NULL;
+
+void printLinkList(void)
+{
+  Node *temp = head;
+
+  if (temp == NULL)
   {
-    int id;
-    struct st *next;
-  } Node;
-
-  Node *root = NULL;
-
-  Node * get_node(int id)
-  {
-      Node *node;
-      node = malloc (sizeof (Node));
-      if (node == NULL)
-      {
-          printf ("Unable to allocate memory\n");
-          return NULL;
-      }
-      else
-      {
-          node->id = id;
-          node->next = NULL;
-      }
-      return node;
+    printf("List is empty\n");
+    return;
   }
-
-  void print_data ()
+  while (temp != NULL)
   {
-    Node *temp = root;
-    while (temp != NULL)
-    {
-      printf ("%d ", temp->id);
-      temp = temp->next;
-    }
-    printf ("\n");
+    printf("%d->", temp->data);
+    temp = temp->next;
   }
+  printf("NULL\n\n");
+}
 
-  void reverse_recursively(Node *ptr)
-  {
-    if (ptr->next == NULL)
-    {
-      root = ptr;
-      return;
-    }
-    reverse_recursively(ptr->next);
-    Node *temp = ptr->next;
-    temp->next = ptr;
-    ptr->next = NULL;
+void addAtFirst(int data)
+{
+  Node *newNode = malloc(sizeof(Node));
 
-  } 
-  
-  void add_node_at_first (int id)
+  if (newNode == NULL)
   {
-    Node *node;
-    node = malloc (sizeof (Node));
-    if (node == NULL)
-    {
-      printf ("Unable to allocate memory\n");
-      return;
-    }
-    else
-    {
-      node->id = id;
-      node->next = NULL;
-    }
-    if (root == NULL)
-    {
-      root = node;
-    }
-    else
-    {
-      node->next = root;
-      root = node;
-    }
+    printf("No memory to allocate \n");
+    return;
   }
+  newNode->data = data;
+  newNode->next = NULL;
 
-  void add_node_at_last (int id)
+  if (head == NULL)
   {
-    Node *node;
-    node = malloc (sizeof (Node));
-    if (node == NULL)
-    {
-      printf ("Unable to allocate memory\n");
-      return;
-    }
-    else
-      {
-        node->id = id;
-        node->next = NULL;
-      }
-    if (root == NULL)
-      {
-        root = node;
-      }
-    else
-      {
-        Node *temp = root;
+    head = newNode;
+  }
+  else
+  {
+    newNode->next = head;
+    head = newNode;
+  }
+}
 
-        while (temp->next != NULL)
+void addAtLast(int data)
+{
+  Node *newNode = malloc(sizeof(Node));
+
+  if (newNode == NULL)
+  {
+    printf("No memory to allocate \n");
+    return;
+  }
+  newNode->data = data;
+  newNode->next = NULL;
+
+  if (head == NULL)
+  {
+    head = newNode;
+  }
+  else
+  {
+    Node *temp = head;
+    while (temp->next != NULL)
     {
       temp = temp->next;
     }
-        temp->next = node;
-      }
+    temp->next = newNode;
   }
+}
 
-  void delete_at_first ()
+void deleteAtFirst(void)
+{
+  if (head == NULL)
   {
-    Node *temp = root;
-    if (temp == NULL)
-      printf ("\nNo data present\n");
-    else
-      {
-        root = root->next;
-        temp->next = NULL;
-        free (temp);
-      }
+    printf("List is empty\n");
+    return;
   }
-
-  void delete_at_last ()
+  else
   {
-      Node *prev = NULL, *temp = root;
-      if (temp == NULL)
-      {
-          printf ("\nNo data present\n");
-      }
-      else
-      {
-          while (temp->next != NULL)
-          {
-            prev = temp;
-            temp = temp->next;
-        }
-          if(prev == NULL)
-            root = NULL;
-          else
-              prev->next = NULL;
-          
-          free (temp);
-      }
-  }
+    Node *temp = head;
 
-  void add_at_middle(int id)
-  {
-      Node *node;
-      node = malloc (sizeof (Node));
-      if (node == NULL)
-      {
-          printf ("Unable to allocate memory\n");
-          return;
-      }
-      else
-      {
-          node->id = id;
-          node->next = NULL;
-      }
-
-      if(root == NULL)
-      {
-          root = node;
-      }
-      else
-      {
-          Node *prev = root, *temp = root->next;
-          
-          while(temp && temp->next)
-          {
-              prev = prev->next;
-              temp = temp->next->next;
-          }
-          node->next = prev->next;
-          prev->next = node;
-      }
-  }
-
-  void delete_at_middle()
-  {
-      if (root == NULL)
-      {
-        printf("No data to print\n");
-        return;
-      }
-      else
-      {
-        if (root->next == NULL)
-        {
-            free(root);
-            root = NULL;
-        }
-        else
-        {
-          Node *temp = root->next, *mid = root, *prev;
-          while (temp && temp->next != NULL)
-          {
-              prev = mid;
-              mid = mid->next;
-              temp = temp->next->next;
-          }
-          prev->next = mid->next;
-          free(mid);
-        }
-      }   
-  }
-
-  void add_at_nth_position(int data, int position)
-  {
-    Node * new_node =  malloc(sizeof(Node));
-
-    if (new_node == NULL)
+    if (temp->next == NULL)
     {
-      printf("Unable to allocate memory\n");
-      return;
+      free(temp);
+      temp = NULL;
+      head = NULL;
     }
     else
     {
-      new_node->id = data;
-      new_node->next = NULL; 
-      if(root == NULL)
-      {
-        root = new_node;
-      }
-      else
-      {
-        if (position == 1)
-        {
-          new_node->next = root;
-          root = new_node;
-        }
-        else
-        {
-          Node *temp = root, *temp2;
-          for (int i = 0; i < position - 2; i++)
-          {
-            temp = temp->next;
-          }
-          temp2 = temp->next;
-          temp->next = new_node;
-          new_node->next = temp2;
-        }
-      }
+      head = head->next;
+      free(temp);
+      temp = NULL;
     }
   }
+}
 
-  void delete_at_nth_position(int position)
+void deleteAtLast(void)
+{
+  Node *temp = head, *prev;
+
+  if (head == NULL)
   {
-    if (root == NULL)
+    printf("List is empty\n");
+    return;
+  }
+  else
+  {
+    if (temp->next == NULL)
     {
-      printf("No data to print\n");
+      free(temp);
+      temp = NULL;
+      head = NULL;
     }
     else
     {
-      if (position == 1)
+      while (temp && temp->next)
       {
-          Node *temp = root;
-          root = root->next;
-          free(temp);
+        prev = temp;
+        temp = temp->next;
       }
-      else
-      {
-        Node *temp = root, *temp2;
-        for (int i = 0; i < position - 2; i++)
-        {
-          temp = temp->next;
-        }
-        temp2 = temp->next;
-        temp->next = temp->next->next;
-        free(temp2);
-      }
+      prev->next = NULL;
+      free(temp);
+      temp = NULL;
     }
   }
+}
 
-  void reverse_list()
+void addAtMiddle(int data)
+{
+  Node *newNode = malloc(sizeof(Node));
+
+  if (newNode == NULL)
   {
-    if (root == NULL)
+    printf("No memory to allocate \n");
+    return;
+  }
+  newNode->data = data;
+  newNode->next = NULL;
+
+  if (head == NULL)
+  {
+    head = newNode;
+  }
+  else
+  {
+    Node *midPtr = head, *lastPtr = head->next;
+
+    while (lastPtr && lastPtr->next)
     {
-      printf("No data is present\n");
+      lastPtr = lastPtr->next->next;
+      midPtr = midPtr->next;
     }
-    else
-    {
-      if (root->next == NULL)
-      {
-        return;
-      }
-      else
-      {
-          Node *next = NULL, * curr = root, *prev = NULL;
-          while (curr)
-          {
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-         }
-          root = prev;
-        }      
-    }    
+    newNode->next = midPtr->next;
+    midPtr->next = newNode;
   }
+}
 
-
-  int main ()
+void deleteAtMiddle_1(void)
+{
+  if (head == NULL)
   {
-      /*int arr[3][3] = {   {11, 12, 13},
-      {14, 15, 16},
-      {17, 18, 19}};
-
-      //printf("arr[1][1] = %d\n", arr[1][1]);
-      //printf("(*(*arr + 1 ) + 1) = %d\n", *(*(arr + 1) + 1));
-
-      for(int i = 0; i < 3; i++)
-      for(int j = 0; j < 3; j++)
-      printf("%d ", arr[i][j]);
-      printf("\n--------------------------------------\n");
-      for(int i = 0; i < 3; i++)
-      for(int j = 0; j < 3; j++)
-      printf("%d ", *( *(arr + i) + j)); */
-      add_node_at_first(6);
-      add_node_at_first(5);
-      add_node_at_first(4);
-      add_node_at_first(3);
-      add_node_at_first(2);
-      add_node_at_first(1);
-      print_data();
-      reverse_recursively(root);
-      print_data();
-      return 0;
+    printf("List is empty\n");
+    return;
   }
+  if (head->next == NULL)
+  {
+    free(head);
+    head = NULL;
+    return;
+  }
+  else
+  {
+    Node *lastPtr = head->next, *midPtr = head, *prev = NULL;
+
+    while (lastPtr != NULL)
+    {
+      prev = midPtr;
+      midPtr = midPtr->next;
+
+      lastPtr = lastPtr->next;
+      if (lastPtr != NULL)
+      {
+        lastPtr = lastPtr->next;
+      }
+    }
+    prev->next = midPtr->next;
+    free(midPtr);
+  }
+}
+
+void reverseList(void)
+{
+  if (head == NULL && head->next == NULL)
+  {
+    return;
+  }
+  else
+  {
+    Node *prevNode = NULL, *currNode = head, *nextNode = NULL;
+    while (currNode != NULL)
+    {
+      nextNode = currNode->next;
+      currNode->next = prevNode;
+      prevNode = currNode;
+      currNode = nextNode;
+    }
+    head = prevNode;
+  }
+}
+
+void reverseListRecursively(Node *ptr)
+{
+  if (ptr->next == NULL)
+  {
+    head = ptr;
+    return;
+  }
+  reverseListRecursively(ptr->next);
+  Node *temp = ptr->next;
+  temp->next = ptr;
+  ptr->next = NULL;
+}
+
+bool findLoopInList()
+{
+
+  addAtFirst(4);
+  addAtFirst(5);
+  addAtFirst(7);
+  addAtFirst(8);
+  addAtFirst(9);
+  addAtFirst(55);
+  addAtFirst(88);
+  addAtFirst(35);
+  addAtFirst(66);
+  printLinkList();
+  // head->next->next->next = head->next->next; // Uncomment to introduce loop in a list
+
+  Node *slow = head, *fast = head;
+
+  while (slow && fast && fast->next)
+  {
+    slow = slow->next;
+    fast = fast->next->next;
+    if (fast == slow)
+    {
+      printf("list has loop\n");
+      return true;
+    }
+  }
+  printf("No loop in list\n");
+  return false;
+}
+
+int main()
+{
+  addAtFirst(1);
+  addAtFirst(5);
+  addAtFirst(4);
+  addAtFirst(5);
+  addAtFirst(2);
+  addAtFirst(33);
+  printLinkList();
+
+  return 0;
+}

@@ -8,7 +8,7 @@ typedef struct doubly
     int data;
     struct doubly *next, *prev;
 
-}Node;
+} Node;
 
 Node *head = NULL;
 
@@ -58,10 +58,10 @@ void add_data_at_first(int data)
         else
         {
             new_node->next = head;
-            head->prev = new_node;   
-            head =  new_node;            
+            head->prev = new_node;
+            head = new_node;
         }
-    }    
+    }
 }
 
 void add_data_at_last(int data)
@@ -89,7 +89,7 @@ void add_data_at_last(int data)
                 temp = temp->next;
             }
             temp->next = new_node;
-            new_node->prev = temp;            
+            new_node->prev = temp;
         }
     }
 }
@@ -111,10 +111,10 @@ void add_data_at_middle(int data)
         {
             head = new_node;
         }
-        else if(head->next = NULL)
+        else if (head->next = NULL)
         {
-                head->next = new_node;
-                new_node->prev = head;
+            head->next = new_node;
+            new_node->prev = head;
         }
         else
         {
@@ -127,9 +127,9 @@ void add_data_at_middle(int data)
             }
             new_node->prev = mid;
             new_node->next = mid->next;
-            mid->next = new_node;           
+            mid->next = new_node;
         }
-    } 
+    }
 }
 
 int main()
