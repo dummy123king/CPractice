@@ -190,42 +190,7 @@ void deleteAtLast(void)
     free(temp);    
 }
 
-void deleteAtMiddle() {
-    if (head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-
-    Node *slow = head, *fast = head;
-
-    // Move fast pointer twice as fast as slow pointer
-    while (fast != NULL && fast->next != NULL) {
-        slow = slow->next;
-        fast = fast->next->next;
-    }
-
-    if (slow == head) {
-        free(slow);
-        head = tail = NULL;
-        return;
-    }
-
-    // Update pointers to bypass the node to be deleted
-    slow->prev->next = slow->next;
-    if (slow->next != NULL) {
-        slow->next->prev = slow->prev;
-    }
-
-    // Update tail if the deleted node was the last node
-    if (slow->next == NULL) {
-        tail = slow->prev;
-    }
-
-    free(slow);
-}
-
-
-void deleteAtMiddle1(void)
+void deleteAtMiddle(void)
 {
     Node *slow = head, *fast = head;
     
@@ -275,11 +240,12 @@ int main()
     addAtMiddle(77);
     addAtMiddle(88);
     addAtMiddle(99);
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 7; i++)
     {
         printList();
-        deleteAtMiddle1();
+        deleteAtMiddle();
     }
+    printList();
 
     return 0;
 }  
