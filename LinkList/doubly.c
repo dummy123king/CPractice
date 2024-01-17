@@ -19,31 +19,27 @@ void printList(void)
         printf("List is empty\n");
         return;
     }
-    printf("NULL->");
     while (temp != NULL)
     {
-        printf("%d->", temp->data);
+        printf("%d <->", temp->data);
         temp = temp->next;
     }
-    printf("NULL\n");
+    printf("\n");
 }
 
 void printListReverse()
 {
-    
     Node *temp = tail;
     if (temp == NULL)
     {
         printf("List is empty\n");
         return;
     }
-    printf("NULL->");
     while (temp != NULL)
     {
-        printf("%d->", temp->data);
+        printf("%d <->", temp->data);
         temp = temp->prev;
     }
-    printf("NULL\n");
 }
 
 void addAtFirst(int data)
@@ -115,8 +111,7 @@ void addAtMiddle(int data)
     newNode->next = NULL;
     if (head == NULL && tail == NULL)
     {
-        head = newNode;
-        tail = newNode;
+        head = tail = newNode;
         return;
     }
     if (head->next == NULL)
@@ -137,12 +132,18 @@ void addAtMiddle(int data)
         }
         newNode->prev = mid;
         newNode->next = mid->next;
+
+        if (mid->next != NULL) {
+            mid->next->prev = newNode;
+        }
+       
         mid->next = newNode;
-        if (head->next->next->next == NULL || head->next->next->next->next == NULL)
+       
+        if (newNode->next == NULL ) //|| head->next->next->next->next == NULL)
         {
             printf("shasdf\n");
-            tail->prev = newNode;
-        }        
+            tail = newNode;
+        }
     }
 }
 
@@ -188,6 +189,12 @@ void deleteAtLast(void)
     free(temp);    
 }
 
+void deleteAtMiddle(void)
+{
+
+}
+
+
 
 int main()
 {
@@ -195,7 +202,9 @@ int main()
     addAtMiddle(1);
     addAtMiddle(6);
     addAtMiddle(55);
-    addAtMiddle(85);
+    addAtMiddle(77);
+    addAtMiddle(88);
+    addAtMiddle(99);
     printList();
     printListReverse();
     /*
