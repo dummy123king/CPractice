@@ -109,11 +109,13 @@ void addAtMiddle(int data)
     newNode->prev = NULL;
     newNode->data = data;
     newNode->next = NULL;
+
     if (head == NULL && tail == NULL)
     {
         head = tail = newNode;
         return;
     }
+
     if (head->next == NULL)
     {
         newNode->prev = head;
@@ -139,9 +141,8 @@ void addAtMiddle(int data)
        
         mid->next = newNode;
        
-        if (newNode->next == NULL ) //|| head->next->next->next->next == NULL)
+        if (newNode->next == NULL )
         {
-            printf("shasdf\n");
             tail = newNode;
         }
     }
@@ -189,12 +190,81 @@ void deleteAtLast(void)
     free(temp);    
 }
 
-void deleteAtMiddle(void)
-{
+void deleteAtMiddle() {
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
 
+    Node *slow = head, *fast = head;
+
+    // Move fast pointer twice as fast as slow pointer
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    if (slow == head) {
+        free(slow);
+        head = tail = NULL;
+        return;
+    }
+
+    // Update pointers to bypass the node to be deleted
+    slow->prev->next = slow->next;
+    if (slow->next != NULL) {
+        slow->next->prev = slow->prev;
+    }
+
+    // Update tail if the deleted node was the last node
+    if (slow->next == NULL) {
+        tail = slow->prev;
+    }
+
+    free(slow);
 }
 
 
+void deleteAtMiddle1(void)
+{
+    Node *slow = head, *fast = head;
+    
+    if (head == NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    
+
+    if (head->next == NULL)
+    {
+        free(head);
+        head = tail = NULL;
+        return;
+    }
+    
+
+    while (fast && fast->next != NULL)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    slow->prev->next = slow->next;
+
+    if(slow->next != NULL)
+    {
+        slow->next->prev = slow->prev;
+    }
+
+
+    if (slow->next == NULL)
+    {
+        tail = slow->prev;
+    }
+    
+    free(slow);
+}
 
 int main()
 {
@@ -205,14 +275,11 @@ int main()
     addAtMiddle(77);
     addAtMiddle(88);
     addAtMiddle(99);
-    printList();
-    printListReverse();
-    /*
-    addAtMiddle(88);
-    printList();
-
-    addAtMiddle(877);
-    printList();*/
+    for (int i = 0; i < 10; i++)
+    {
+        printList();
+        deleteAtMiddle1();
+    }
 
     return 0;
-}
+}  
