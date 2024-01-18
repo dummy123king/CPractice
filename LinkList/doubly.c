@@ -21,7 +21,7 @@ void printList(void)
     }
     while (temp != NULL)
     {
-        printf("%d <->", temp->data);
+        printf("%d<->", temp->data);
         temp = temp->next;
     }
     printf("\n");
@@ -231,20 +231,36 @@ void deleteAtMiddle(void)
     free(slow);
 }
 
+void reverseList(void)
+{
+    Node *temp = NULL, *curr = head;
+
+    while (curr != NULL)
+    {
+        temp = curr->prev;
+        curr->prev = curr->next;
+        curr->next = temp;
+        curr = curr->prev; 
+    }
+
+    if (temp != NULL)
+    {
+        head = temp->prev;
+        tail = temp;
+    }    
+}
+
 int main()
 {
-    addAtMiddle(5);
-    addAtMiddle(1);
-    addAtMiddle(6);
-    addAtMiddle(55);
-    addAtMiddle(77);
-    addAtMiddle(88);
-    addAtMiddle(99);
-    for (int i = 0; i < 7; i++)
-    {
-        printList();
-        deleteAtMiddle();
-    }
+    addAtLast(5);
+    addAtLast(1);
+    addAtLast(6);
+    addAtLast(55);
+    addAtLast(77);
+    addAtLast(88);
+    addAtLast(99);
+    printList();
+    reverseList();
     printList();
 
     return 0;

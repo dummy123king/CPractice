@@ -29,7 +29,6 @@ void add_at_first(Employee_t **head, int data)
     {
         Node->next = *head;
         (*head) = Node;
-        
     }
 }
 
