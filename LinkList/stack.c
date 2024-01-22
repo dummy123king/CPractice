@@ -6,7 +6,7 @@ typedef struct stack
 {
     int data;
     struct stack *next;
-}Stack;
+} Stack;
 
 Stack *root = NULL;
 
@@ -30,13 +30,13 @@ void printStack(void)
     printf("\n");
 }
 
-void push(int data)
+bool push(int data)
 {
     Stack *Node = malloc(sizeof(Stack));
     if (Node == NULL)
     {
         printf("No memory left to allocate\n");
-        return;
+        return false;
     }
     Node->data = data;
     Node->next = NULL;
@@ -49,43 +49,64 @@ void push(int data)
     {
         Node->next = root;
         root = Node;
-    }  
+    }
+    return true;
 }
 
-int pop(void)
+bool pop(int *data)
 {
-    int data ;
     Stack *temp = root;
-    if(!isEmpty())
+    if (!isEmpty())
     {
-        data = temp->data;
+        *data = temp->data;
         root = root->next;
         free(temp);
         return data;
     }
     else
     {
-        printf("Stack is empty\n");
+        return false;
     }
+}
+
+bool peek(int *data)
+{
+    if (root == NULL)
+    {
+        printf("List is empty\n");
+        return false;
+    }
+    else
+    {
+        *data = root->data;
+    }
+    return true;
 }
 
 int main()
 {
     int data = 0;
+
+    if (isEmpty() == true)
+        printf("List is empty...\n");
+    else
+        printf("List is Not empty...\n");
+
     push(5);
     push(4);
     push(3);
     push(2);
     push(1);
     printStack();
-    
-    data = pop();
-    printf("%d\n", data);
+    printf("Peek------->>>: %d\n", data);
+    pop(&data);
     printStack();
+    peek(&data);
+    printf("Peek------->>>: %d\n", data);
+    if (isEmpty() == true)
+        printf("List is empty...\n");
+    else
+        printf("List is Not empty...\n");
 
-    data = pop();
-    printf("%d\n", data);
-    printStack();
-    
     return 0;
 }

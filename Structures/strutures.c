@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 void user_defined_sizeof(void)
 {	
@@ -13,7 +14,7 @@ void user_defined_sizeof(void)
 	}data;
 	data  object = {0};
 	int a = 0;
-	printf("sizeof struct = %u\n", SIZEOF(object));
+	printf("sizeof struct = %ld\n", SIZEOF(object));
 }
 
 void check_endianess(void)
@@ -73,6 +74,9 @@ void annonymous_use_struct_union(void)
 		};
 	}annonymous;
 
+	printf("------------------------------------------------------->>> = %lu\n", sizeof(annonymous));
+
+
 	annonymous object_1;
 	object_1.data = 5;
 	object_1.a = 6;
@@ -98,10 +102,10 @@ void structure_padding()
 		int bitfield:1;
 	}padding_t;
 
-	printf("%d\n", sizeof(padding_t));
+	printf("%ld\n", sizeof(padding_t));
 }
 
-void flexible_arry()
+void flexible_arry(void)
 {
 	//flexible array
 	typedef struct
@@ -110,21 +114,53 @@ void flexible_arry()
 		int *arr;
 	}flexible_array_t;
 	
-	flexible_array_t object;
-	object.arr = malloc(5*sizeof(int));
-	object.arr[0] = 1;
-	printf("%d\n", object.arr[0]);
+	flexible_array_t *object;
+	printf("----->>>%lu\n", sizeof(object));
+	object = malloc(sizeof(flexible_array_t));
+
+	object->arr = malloc(5 * sizeof(int));
+
+	object->arr[0] = 1;
+	printf("%d\n", object->arr[0]);
+	printf("----->>>%lu\n", sizeof(object));
+
+}
+
+typedef struct name
+{
+	int data[3];
+	char name[100];
+	int marks;
+}Data;
+
+void passData(Data *obj)
+{
+	printf("FILE: %s, FUNC: %s, LINE: %d\n", __FILE__,  __func__, __LINE__);
+	printf("data  :%d\n", obj->data[0]);
+	printf("data  :%d\n", obj->data[1]);
+	printf("data  :%d\n", obj->data[2]);
+	printf("Name  :%s\n", obj->name);
+	printf("Marks  :%d\n", obj->marks);
 }
 
 int main()
 {
-	/*annonymous_use_struct_union();
-	check_endianess();
-	structure_padding();
-	convert_little_endian_to_big_endian();*/
-	//flexible_arry();*/
-
-	// user_defined_sizeof();
 	annonymous_use_struct_union();
+
+	// structure_padding();
+
+// 	void (*fptr)(Data *) = passData;
+
+// 	Data obj;
+// 	obj.data[0]	= 5;
+// 	obj.data[1]	= 55;
+// 	obj.data[2]	= 56;
+// 	obj.marks = 88;
+// 	strcpy(obj.name, "Shaheena");
+	// (*fptr)(&obj);
+	// fptr(&obj);
+	// flexible_arry();
+
+	// passData(&obj);
 	return 0;
 }
