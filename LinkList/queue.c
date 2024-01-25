@@ -71,6 +71,7 @@ bool dequeue(int *data)
     else
     {
         Queue *temp = head;
+        *data = temp->data; 
         head = head->next;
         free(temp);
     }
@@ -93,6 +94,7 @@ bool deleteQueue(void)
     }
     return true;
 }
+
 bool peek(int *data)
 {
     if (isEmpty() == true)
@@ -104,7 +106,7 @@ bool peek(int *data)
 
 int main()
 {
-    int data;
+    int data = 0;
 
     enqueue(1);
     enqueue(2);
@@ -112,20 +114,21 @@ int main()
     enqueue(4);
     printQueue();
 
-    for (size_t i = 0; i < 5; i++)
+    for (size_t i = 0; i < 2; i++)
     {
         dequeue(&data);
+        printf("--------------------------->>>Data: %d\n", data);
         printQueue();
     }
     
-    enqueue(5);
-    enqueue(6);
-    enqueue(7);
-    enqueue(9);
-    printQueue();
+    // enqueue(5);
+    // enqueue(6);
+    // enqueue(7);
+    // enqueue(9);
+    // printQueue();
 
-    peek(&data);
-    printf("Peek = %d\n", data);
+    // peek(&data);
+    // printf("Peek = %d\n", data);
 
 
     return 0;

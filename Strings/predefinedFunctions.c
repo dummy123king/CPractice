@@ -215,34 +215,6 @@ void *my_memmove(void *dest, const void *src, size_t n)
     return dest;
 }
 
-void count_repeated_chars(char * str)
-{
-	int count = 0;
-	int len = my_strlen(str);
-	
-	for(int i = 0; i < len; i++)
-	{
-		count = 1;
-		for(int j = i + 1; j < len; j++)
-		{
-			if(str[i] == '\0')
-			{
-
-			}
-			if(str[i] == str[j])
-			{
-				count++;
-				str[j] = '\0';
-			}
-		}
-		if(str[i] != '\0')
-		{
-			printf("%c---->%d\n", str[i], count);
-		}
-	}
-}
-
-
 int main()
 {
     char str1[] = "HellooHellooo";
