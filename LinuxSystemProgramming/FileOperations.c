@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     char buff[1000];
     char dataTobeWritten[] = "This Data has written to the file";
 
-    fd = open("test.txt", O_RDWR, 07777); //Open the file in Read and write mode
+    fd = open("test.txt", O_RDWR, 0777); //Open the file in Read and write mode
 
     if (fd == -1)
     {
