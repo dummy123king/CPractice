@@ -1,0 +1,296 @@
+19:09:51 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Inc" -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:10:18 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5924	    100	   1900	   7924	   1ef4	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:11:06 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:12:58 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+19:15:03 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+19:21:09 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+19:25:30 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:26:03 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:26:33 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:27:12 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:27:45 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:28:20 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:28:59 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5972	    100	   1900	   7972	   1f24	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:29:38 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+../Src/001_ledBlinky.c: In function 'main':
+../Src/001_ledBlinky.c:31:13: warning: unused variable 'count' [-Wunused-variable]
+   31 |         int count = 0;
+      |             ^~~~~
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1724	      8	   1568	   3300	    ce4	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:30:45 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+../Src/001_ledBlinky.c: In function 'main':
+../Src/001_ledBlinky.c:31:13: warning: unused variable 'count' [-Wunused-variable]
+   31 |         int count = 0;
+      |             ^~~~~
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1724	      8	   1568	   3300	    ce4	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:32:03 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5976	    100	   1900	   7976	   1f28	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:32:39 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+../Src/001_ledBlinky.c: In function 'main':
+../Src/001_ledBlinky.c:31:13: warning: unused variable 'count' [-Wunused-variable]
+   31 |         int count = 0;
+      |             ^~~~~
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1724	      8	   1568	   3300	    ce4	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:34:46 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+../Src/001_ledBlinky.c: In function 'main':
+../Src/001_ledBlinky.c:31:13: warning: unused variable 'count' [-Wunused-variable]
+   31 |         int count = 0;
+      |             ^~~~~
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1772	      8	   1568	   3348	    d14	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:38:12 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+../Src/001_ledBlinky.c: In function 'main':
+../Src/001_ledBlinky.c:31:13: warning: unused variable 'count' [-Wunused-variable]
+   31 |         int count = 0;
+      |             ^~~~~
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1724	      8	   1568	   3300	    ce4	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:38:49 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1720	      8	   1568	   3296	    ce0	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+19:39:17 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1720	      8	   1568	   3296	    ce0	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 

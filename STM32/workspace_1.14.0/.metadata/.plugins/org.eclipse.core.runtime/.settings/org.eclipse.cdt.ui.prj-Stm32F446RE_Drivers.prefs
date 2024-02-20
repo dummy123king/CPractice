@@ -1,0 +1,3 @@
+buildConsole/keepLog=true
+buildConsole/logLocation=/home/mirafra/STM32CubeIDE/workspace_1.14.0/.metadata/.plugins/org.eclipse.cdt.ui/Stm32F446RE_Drivers.build.log
+eclipse.preferences.version=1

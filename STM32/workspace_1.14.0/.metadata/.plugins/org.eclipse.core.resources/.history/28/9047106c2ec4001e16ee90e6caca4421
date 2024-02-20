@@ -1,0 +1,39 @@
+
+#include <stdio.h>
+#include <stdint.h>
+
+#define RCC_BASE_ADRESS 					0x40023800
+#define RCC_OFFSET_ADDRESS 					0x30
+#define GPIOB_BASE_ADDRESS					0x40020400
+#define GPIOB_OFFSET_ADDRESS				0x00
+#define GPIOB_ODR_OFFSET					0x14
+
+
+#define RCC_AHB1ENR 						(*(uint32_t *)(RCC_BASE_ADRESS + RCC_OFFSET_ADDRESS))
+#define GPIOB_MODE  						(*(uint32_t *)(GPIOB_BASE_ADDRESS + GPIOB_OFFSET_ADDRESS))
+#define GPIOB_ODR  							(*(uint32_t *)(GPIOB_BASE_ADDRESS + GPIOB_ODR_OFFSET))
+
+void led_init(void)
+{
+	RCC_AHB1ENR |= (0X1 << 1); // ENABLE TO CLOCK
+	GPIOB_MODE  |= 0X04000000;  // TO SET  01 TO 26TH AND 27TH BITS OUTPUT MODE
+	GPIOB_ODR   |= (0X1 << 13);
+}
+
+void delay(void)  //DEALY
+{
+	for(int i = 0; i < 900000; i++);
+}
+
+
+int main()
+{
+	led_init();
+//	while(1)
+//	{
+//		GPIOB_ODR &= ~(0X1 << 13); //	CLEARING TO 13TH BIT PB13
+//		delay();
+//		GPIOB_ODR |= (0X1 << 13); // SET TO BIT 13
+//		delay();
+//	}
+}

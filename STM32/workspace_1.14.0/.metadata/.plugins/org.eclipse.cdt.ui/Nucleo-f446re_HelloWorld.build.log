@@ -1,0 +1,10 @@
+12:32:29 **** Incremental Build of configuration Debug for project Nucleo-f446re_HelloWorld ****
+make -j4 all 
+arm-none-eabi-size  Nucleo-f446re_HelloWorld.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3428	    100	   1900	   5428	   1534	Nucleo-f446re_HelloWorld.elf
+Finished building: default.size.stdout
+ 
+
+12:32:30 Build Finished. 0 errors, 0 warnings. (took 1s.339ms)
+

@@ -1,0 +1,17 @@
+19:39:17 **** Incremental Build of configuration Debug for project Stm32F446RE_Drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/001_ledBlinky.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/001_ledBlinky.d" -MT"Src/001_ledBlinky.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/001_ledBlinky.o"
+arm-none-eabi-gcc -o "Stm32F446RE_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/mirafra/STM32CubeIDE/workspace_1.14.0/GpioDriver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32F446RE_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Stm32F446RE_Drivers.elf
+ 
+arm-none-eabi-size  Stm32F446RE_Drivers.elf 
+arm-none-eabi-objdump -h -S Stm32F446RE_Drivers.elf  > "Stm32F446RE_Drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   1720	      8	   1568	   3296	    ce0	Stm32F446RE_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: Stm32F446RE_Drivers.list
+ 
+
+19:39:19 Build Finished. 0 errors, 0 warnings. (took 1s.421ms)
+
