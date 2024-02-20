@@ -23,6 +23,7 @@ void reverse_str_1(char *str)
     }
 }
 
+//pass n = 0
 void reverse_str_2(char *ptr, int n)
 {
     static int count = 0;
@@ -222,8 +223,8 @@ int main()
     
     char *ptr = NULL;
 
-    ptr = my_strstr(str1, str2);
-    printf("------>%s\n", ptr);
+    reverse_str_2(str1, 0);
+    printf("------>%s\n", str1);
 
     return 0;
 }
