@@ -15,7 +15,7 @@ uint32_t my_strlen(const char *str)
 void reverse_str_1(char *str)
 {
     int len = my_strlen(str);
-    for(int i = 0, j = len - 1; j > i; i++, j--)
+    for (int i = 0, j = len - 1; j > i; i++, j--)
     {
         char temp = *(str + i);
         *(str + i) = *(str + j);
@@ -23,19 +23,19 @@ void reverse_str_1(char *str)
     }
 }
 
-//pass n = 0
+// pass n = 0
 void reverse_str_2(char *ptr, int n)
 {
     static int count = 0;
 
-    if ( *(ptr + n) == '\0')
+    if (*(ptr + n) == '\0')
         return;
     reverse_str_2(ptr, n + 1);
-    if(count <= n)
+    if (count <= n)
     {
         char temp = *(ptr + n);
         *(ptr + n) = *(ptr + count);
-        *(ptr + count++) =  temp;
+        *(ptr + count++) = temp;
     }
 }
 
@@ -43,68 +43,68 @@ void reverse_str_3(char *ptr)
 {
     int len = my_strlen(ptr), j = 0;
     char buff[len];
-    for(int i = len - 1; i >= 0; i-- , j++)
+    for (int i = len - 1; i >= 0; i--, j++)
         buff[j] = ptr[i];
 
     buff[j] = '\0';
-    for(int i = 0; buff[i]; i++ )
-        ptr[i] = buff[i]; 
+    for (int i = 0; buff[i]; i++)
+        ptr[i] = buff[i];
 }
 
-char *my_strstr(const char * str, const char * substr)
+char *my_strstr(const char *str, const char *substr)
 {
     for (int i = 0; str[i]; i++)
     {
         int j = 0;
 
         if (str[i] == substr[j])
-        {     
+        {
             for (j = 1; substr[j]; j++)
             {
                 if (str[j + i] == substr[j])
                 {
                     if (substr[j + 1] == '\0')
                     {
-                        return (char *)(str + i); 
+                        return (char *)(str + i);
                     }
-                }   
+                }
                 else
-                    break;                
+                    break;
             }
         }
     }
     return NULL;
 }
 
-char *my_strcpy(char *dest, const char * src)
+char *my_strcpy(char *dest, const char *src)
 {
     uint32_t len = my_strlen(dest) - 1;
-    int j = 0;    
+    int j = 0;
     for (; src[j]; len++, j++)
         dest[len] = src[j];
-    
+
     dest[len + j] = '\0';
     return dest;
 }
 
-char *my_strncpy(char *dest, const char* src, size_t count)
+char *my_strncpy(char *dest, const char *src, size_t count)
 {
     uint32_t len = my_strlen(dest);
     size_t n = count, i = 0;
     while (n-- && src[i])
     {
-        dest[len++] = src[i++]; 
+        dest[len++] = src[i++];
     }
-    
+
     if (count > my_strlen(src))
         dest[len] = '\0';
 
-    return dest;    
+    return dest;
 }
 
 char *my_strcat(char *dest, const char *src)
 {
-    uint32_t len = my_strlen(dest) - 1; 
+    uint32_t len = my_strlen(dest) - 1;
     char *temp = dest;
     int i = 0;
     while (src[i])
@@ -118,7 +118,7 @@ char *my_strncat(char *dest, const char *src, size_t n)
     int count = n;
     while (n-- && *src)
         *temp++ = *src++;
-    
+
     if (count > my_strlen(src))
         *temp = '\0';
     return dest;
@@ -128,25 +128,24 @@ int my_strcmp(const char *str1, const char *str2)
 {
     while (*str1 != '\0' && *str2 != '\0')
     {
-        if(*str1 != *str2)
+        if (*str1 != *str2)
             return (str1 - str2);
         str1++;
-        str2++;          
+        str2++;
     }
-    return (str1 - str2);;
+    return (str1 - str2);
 }
 
 int my_strncmp(const char *str1, const char *str2, size_t n)
 {
-
     while (n--)
-    {    
+    {
         if (*str1 != '\0' && *str2 != '\0')
         {
-            if(*str1 != *str2)
-                return (str1 - str2); 
+            if (*str1 != *str2)
+                return (str1 - str2);
             str1++;
-            str2++;          
+            str2++;
         }
     }
     return 0;
@@ -166,14 +165,10 @@ char *my_strchr(const char *str, int ch)
 char *my_strrchr(const char *str, int ch)
 {
     char *temp = NULL;
-    while (*str != '\0')
+    while (*str)
     {
-        if (*str)
-        {
-            if (*str == ch)
-                temp = (char *)str;
-            str++;
-        }        
+        if (*str == ch)
+            temp = (char *)str;
         str++;
     }
     return temp;
@@ -183,7 +178,7 @@ void *my_memcpy(void *dest, const void *src, size_t n)
 {
     char *temp1 = (char *)dest;
     char *temp2 = (char *)src;
-    int len =  my_strlen(temp1);
+    int len = my_strlen(temp1);
     for (size_t i = 0; i < n; i++)
     {
         *(temp1 + len++) = *(temp2 + i);
@@ -197,7 +192,7 @@ void *my_memmove(void *dest, const void *src, size_t n)
     const char *temp2 = src;
 
     if (temp1 < temp2)
-    {    
+    {
         while (n--)
         {
             *temp1++ = *temp2++;
@@ -205,7 +200,7 @@ void *my_memmove(void *dest, const void *src, size_t n)
     }
     else
     {
-        //Copy from the end of the strings
+        // Copy from the end of the strings
         char *temp1 = dest + n - 1;
         const char *temp2 = src + n - 1;
         while (n--)
@@ -219,12 +214,11 @@ void *my_memmove(void *dest, const void *src, size_t n)
 int main()
 {
     char str1[] = "HellooHellooo";
-    char str2[] = "loo"; 
-    
+    char str2[] = "loo";
     char *ptr = NULL;
 
-    reverse_str_2(str1, 0);
-    printf("------>%s\n", str1);
+    ptr = my_strrchr(str1, 'l');
+    printf("------>%s\n", ptr);
 
     return 0;
 }
