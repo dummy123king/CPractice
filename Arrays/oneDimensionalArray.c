@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <ctype.h>
-#include <pthread.h>
-#include <stdint.h>
-#include <semaphore.h>
+
 
 void printArray(int *ptr, int len)
 {

@@ -1,16 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct DoublyLinklist
+// Define a structure for a doubly linked list node
+typedef struct DoublyLinkedListNode
 {
-    struct DoublyLinklist *prev;
-    int data;
-    struct DoublyLinklist *next;
-}Node;
+    struct DoublyLinkedListNode *prev; // Pointer to the previous node
+    int data; // Data stored in the node
+    struct DoublyLinkedListNode *next; // Pointer to the next node
+} Node;
 
+// Declare global pointers for the head and tail of the linked list
 Node *head = NULL;
 Node *tail = NULL;
 
+// Function to print the doubly linked list from head to tail
 void printList(void)
 {
     Node *temp = head;
@@ -21,12 +24,13 @@ void printList(void)
     }
     while (temp != NULL)
     {
-        printf("%d<->", temp->data);
-        temp = temp->next;
+        printf("%d<->", temp->data); // Print the data of the current node
+        temp = temp->next; // Move to the next node
     }
     printf("\n");
 }
 
+// Function to print the doubly linked list from tail to head (in reverse)
 void printListReverse()
 {
     Node *temp = tail;
@@ -37,14 +41,15 @@ void printListReverse()
     }
     while (temp != NULL)
     {
-        printf("%d <->", temp->data);
-        temp = temp->prev;
+        printf("%d <->", temp->data); // Print the data of the current node
+        temp = temp->prev; // Move to the previous node
     }
 }
 
+// Function to add a new node with data at the beginning of the linked list
 void addAtFirst(int data)
 {
-    Node *newNode = malloc(sizeof(Node));
+    Node *newNode = malloc(sizeof(Node)); // Allocate memory for the new node
 
     if (newNode == NULL)
     {
@@ -58,21 +63,24 @@ void addAtFirst(int data)
 
     if (head == NULL && tail == NULL)
     {
+        // If the list is empty, make the new node the head and tail
         head = newNode;
         tail = newNode;
         return;
     }
     else
     {
+        // If the list is not empty, insert the new node at the beginning
         newNode->next = head;
         head->prev = newNode;
         head = newNode;
     }
 }
 
+// Function to add a new node with data at the end of the linked list
 void addAtLast(int data)
 {
-    Node *newNode = malloc(sizeof(Node));
+    Node *newNode = malloc(sizeof(Node)); // Allocate memory for the new node
     if (newNode == NULL)
     {
         printf("Unable to allocate memory\n");
@@ -85,21 +93,24 @@ void addAtLast(int data)
 
     if (head == NULL && tail == NULL)
     {
+        // If the list is empty, make the new node the head and tail
         head = newNode;
         tail = newNode;
         return;
     }
     else
     {
+        // If the list is not empty, insert the new node at the end
         newNode->prev = tail;
         tail->next = newNode;
         tail = newNode;
     }
 }
 
+// Function to add a new node with data in the middle of the linked list
 void addAtMiddle(int data)
 {
-    Node *newNode = malloc(sizeof(Node));
+    Node *newNode = malloc(sizeof(Node)); // Allocate memory for the new node
     if (newNode == NULL)
     {
         printf("Unable to allocate memory");
@@ -112,12 +123,14 @@ void addAtMiddle(int data)
 
     if (head == NULL && tail == NULL)
     {
+        // If the list is empty, make the new node the head and tail
         head = tail = newNode;
         return;
     }
 
     if (head->next == NULL)
     {
+        // If there's only one node in the list, insert the new node after it
         newNode->prev = head;
         head->next = newNode;
         tail = newNode;
@@ -125,13 +138,16 @@ void addAtMiddle(int data)
     }
     else
     {
+        // If there are multiple nodes in the list, insert the new node in the middle
         Node *mid = head, *fast = head->next;
 
+        // Find the middle node using slow and fast pointers
         while (fast && fast->next)
         {
             mid = mid->next;
             fast = fast->next->next;
         }
+        // Insert the new node after the middle node
         newNode->prev = mid;
         newNode->next = mid->next;
 
@@ -148,6 +164,7 @@ void addAtMiddle(int data)
     }
 }
 
+// Function to delete the first node from the linked list
 void deleteAtFirst(void)
 {
     Node* temp = head; 
@@ -159,17 +176,20 @@ void deleteAtFirst(void)
     }
     if (temp->next == NULL)
     {
+        // If there's only one node in the list, delete it and update head and tail
         free(temp);
         head = NULL;
         tail = NULL;
         return;
     }
     
+    // If there are multiple nodes in the list, delete the first node and update head
     head = head->next;
     head->prev = NULL;
     free(temp);
 }
 
+// Function to delete the last node from the linked list
 void deleteAtLast(void)
 {
     Node *temp = tail;
@@ -180,16 +200,19 @@ void deleteAtLast(void)
     }
     if (temp->prev == NULL)
     {
+        // If there's only one node in the list, delete it and update head and tail
         free(temp);
         tail = NULL;
         head = NULL;
         return;
     }
+    // If there are multiple nodes in the list, delete the last node and update tail
     tail->prev->next = NULL;
     tail = tail->prev;
     free(temp);    
 }
 
+// Function to delete the middle node from the linked list
 void deleteAtMiddle(void)
 {
     Node *slow = head, *fast = head;
@@ -203,18 +226,21 @@ void deleteAtMiddle(void)
 
     if (head->next == NULL)
     {
+        // If there's only one node in the list, delete it and update head and tail
         free(head);
         head = tail = NULL;
         return;
     }
     
 
+    // Use slow and fast pointers to find the middle node
     while (fast && fast->next != NULL)
     {
         slow = slow->next;
         fast = fast->next->next;
     }
 
+    // Delete the middle node and update pointers
     slow->prev->next = slow->next;
 
     if(slow->next != NULL)
@@ -231,12 +257,14 @@ void deleteAtMiddle(void)
     free(slow);
 }
 
+// Function to reverse the linked list
 void reverseList(void)
 {
     Node *temp = NULL, *curr = head;
 
     while (curr != NULL)
     {
+        // Swap prev and next pointers of the current node
         temp = curr->prev;
         curr->prev = curr->next;
         curr->next = temp;
@@ -245,13 +273,16 @@ void reverseList(void)
 
     if (temp != NULL)
     {
+        // If temp is not NULL, it means the list was not empty, so update head and tail
         head = temp->prev;
         tail = temp;
     }    
 }
 
+// Main function
 int main()
 {
+    // Add some nodes to the linked list
     addAtLast(5);
     addAtLast(1);
     addAtLast(6);
@@ -259,9 +290,15 @@ int main()
     addAtLast(77);
     addAtLast(88);
     addAtLast(99);
+
+    // Print the original list
+    printf("Original list:\n");
     printList();
+
+    // Reverse the list and print it
+    printf("\nList after reversing:\n");
     reverseList();
     printList();
 
     return 0;
-}  
+}

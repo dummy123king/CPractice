@@ -107,7 +107,6 @@ void structure_padding()
 
 void flexible_arry(void)
 {
-	//flexible array
 	typedef struct
 	{
 		int data;
