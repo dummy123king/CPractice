@@ -1,11 +1,5 @@
-#include <stdio.h>       // Include standard input/output library
-#include <stdlib.h>      // Include standard library
-#include <string.h>      // Include string manipulation functions
-#include <unistd.h>      // Include POSIX operating system API
-#include <ctype.h>       // Include character classification functions
-#include <pthread.h>     // Include POSIX thread library
-#include <stdint.h>      // Include standard integer types
-#include <semaphore.h>   // Include semaphore synchronization primitive
+#include <stdio.h>
+#include <ctype.h>
 
 // Function to count the number of lowercase letters in a string
 int countLowerCaseLetters(char *ptr)

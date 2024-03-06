@@ -1,5 +1,5 @@
-#include <stdio.h>  // Standard Input-Output library
-#include <stdlib.h>  // Standard library for memory allocation, random numbers, etc.
+#include <stdio.h>
+#include <stdlib.h>
 
 void printArray(int *ptr, int len)
 {

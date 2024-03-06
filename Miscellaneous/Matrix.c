@@ -1,7 +1,8 @@
-#include <stdio.h>          // Include standard input-output header file
-#include <stdlib.h>         // Include standard library header file
+#include <stdio.h>
+#include <stdlib.h>
 
-void MatrixMultiplication()  // Function to perform matrix multiplication
+// Function to perform matrix multiplication
+void MatrixMultiplication()  
 {
     printf("Matrix multiplication\n");   // Print message indicating matrix multiplication
 
